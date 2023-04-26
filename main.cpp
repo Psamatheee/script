@@ -27,6 +27,7 @@ int main(){
 
     bool change = true;
     sf::Clock clock;
+    sf::Clock exit;
 
     while(window.isOpen()){
 
@@ -34,6 +35,7 @@ int main(){
         while(window.pollEvent(event)){
             if (event.type == sf::Event::Closed) window.close();
         }
+        if(exit.getElapsedTime().asSeconds() > 1) window.close();
 
         if(change){
             window.clear(other_colour);
